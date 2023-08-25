@@ -1,0 +1,66 @@
+﻿@model List<BookViewModel>
+
+@{
+	ViewBag.Title = "Home Page";
+}
+
+
+@if (!Model.Any())
+{
+	<div class="jumbotron">
+		<h1 class="display-4">Welcome to the world of books... </h1>
+		<hr class="my-4">
+		<p>There are no books in the system currently available, so why don't you just add one?</p>
+		<a asp-controller="Book" asp-action="Add" class="btn btn-primary btn-lg" role="button">Add Book</a>
+	</div>
+}
+else
+{
+	<div style="text-align:center" class="container">
+		<div class="row">
+	<h4 class="mt-5 mb-3">Choice by category</h4>
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">All Books</h5>
+						<a asp-controller="Book" asp-action="All">
+							<img class="card-img" src="https://as1.ftcdn.net/v2/jpg/01/74/02/10/1000_F_174021010_jtA3gMNwhNomUVrDsfcG2Hb1UopUPgBy.jpg">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Fantasy</h5>
+						<a asp-controller="Book" asp-action="ByGenre" asp-route-name="Fantasy">
+							<img class="card-img" src="https://hips.hearstapps.com/hmg-prod/images/v-e-books-1602267356.jpg?crop=0.5xw:1xh">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-4">
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Thriller</h5>
+						<a asp-controller="Book" asp-action="ByGenre" asp-route-name="Thriller">
+							<img class="card-img" src="https://m.media-amazon.com/images/I/913yDZbQ8nS._AC_UF1000,1000_QL80_.jpg">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Biography</h5>
+						<a asp-controller="Book" asp-action="ByGenre" asp-route-name="Biography">
+							<img class="card-img" src="https://m.media-amazon.com/images/I/71tdxrc-IuL._AC_UF1000,1000_QL80_.jpg">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}
